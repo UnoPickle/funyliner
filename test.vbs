@@ -1,8 +1,15 @@
 Set objShell = CreateObject("WScript.Shell")
+Set objArgs = WScript.Arguments
 
-response = MsgBox("This is the first message box.", vbOKOnly, "Message 1")
+If objArgs.Count > 0 Then
+    count = CInt(objArgs(0))
+Else
+    count = 1
+End If
+
+response = MsgBox("This is message box number " & count, vbOKOnly, "Lovely message from Hagai Badichi")
 
 If response = vbOK Then
-    objShell.Run "wscript " & WScript.ScriptFullName
-    objShell.Run "wscript " & WScript.ScriptFullName
+    objShell.Run "wscript " & WScript.ScriptFullName & " " & (count + 1)
+    objShell.Run "wscript " & WScript.ScriptFullName & " " & (count + 2)
 End If
