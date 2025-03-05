@@ -7,6 +7,10 @@ Else
     count = 1
 End If
 
+Set Sound = CreateObject("WMPlayer.OCX.7")
+Sound.URL = "c:\windows\media\notify.wav"
+Sound.Controls.play
+
 response = MsgBox("This is message box number " & count, vbOKOnly, "Lovely message from Hagai Badichi")
 
 If response = vbOK Then
